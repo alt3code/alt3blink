@@ -1,14 +1,5 @@
-# flask-react
-Boilerplate with a Flask backend and React frontend
+# alt3blink
 
-# Get started
-  
-    git clone https://github.com/jbkuczma/flask-react.git
-    virtualenv flask-react (recommended)
-    cd flask-react
-    
-    ** In one tab **
-    sh setup.sh -> install frontend and backend dependencies and start the Flask server
-    
-    ** In another tab **
-    npm start -> start frontend development server
+## To run:
+> cd app
+> npm start
