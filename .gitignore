@@ -109,4 +109,4 @@ pip-selfcheck.json
 
 app/backend/static/bundle.js
 
-.DS_Store
+/.DS_Store
