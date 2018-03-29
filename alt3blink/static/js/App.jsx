@@ -18,12 +18,7 @@ export default class App extends React.Component {
 
     render () {
         return (
-            <PageHeader>
-                <div className='header-contents'>
-                    {/* {this.addHeaderImg()} */}
-                    <Hello name='Harry' />
-                </div>
-            </PageHeader>
+            <Hello />
         );
     }
 }

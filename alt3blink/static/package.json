@@ -42,5 +42,8 @@
     "webpack": "^3.11.0",
     "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^3.1.1"
+  },
+  "dependencies": {
+    "material-ui": "^0.20.0"
   }
 }
