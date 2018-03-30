@@ -7,6 +7,8 @@ import SnackbarNote from './SnackbarNote';
 
 import '../css/SwipeTabs.css';
 
+import run_color from './main.js';
+
 var $ = require('jquery');
 
 const styles = {
@@ -22,6 +24,11 @@ const styles = {
       margin: '0 auto'
   }
 };
+
+const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+  const hex = x.toString(16)
+  return hex.length === 1 ? '0' + hex : hex
+}).join('')
 
 export default class SwipeTabs extends Component {
 
@@ -44,14 +51,19 @@ export default class SwipeTabs extends Component {
   doPythonBlink() {
     $.get(window.location.href + 'blink', (color) => {
       console.log("Blink color " + color);
+
+      const cols = color.split(',');
+      const textColor = run_color(cols[0], cols[1], cols[2]);
       this.setState({
-          color: color
-      })
-    });
+          color: cols,
+          textColor: textColor
+      });
+    });    
   }
 
   render() {
     return (
+
       <div>
           <Tabs
               onChange={this.handleChange}
@@ -70,8 +82,8 @@ export default class SwipeTabs extends Component {
                       <SnackbarNote name="Find BlinkStick" description="Connected to" />
                       <RaisedButton label="Blink" onClick={this.doPythonBlink} secondary={true} />
                       <div className="color-div">
-                          <div className="color-circle" style={{backgroundColor: this.state.color}}>
-                              <p className="color-text">Current Colour: </p>
+                          <div className="color-circle" style={{backgroundColor: `rgb(${this.state.color})`}}>
+                              <p className="color-text" style={{color: this.state.textColor}}>Colour</p>
                           </div>
                       </div>
                   </Paper>

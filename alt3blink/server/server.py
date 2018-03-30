@@ -24,7 +24,8 @@ def find():
 
 @app.route('/blink')
 def blink():
-    return blink.blink()
+    rgb_list = blink.blink()
+    return ','.join(str(i) for i in rgb_list)
 
 if __name__ == '__main__':
     blink = Blink()
