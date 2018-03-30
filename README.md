@@ -1,7 +1,7 @@
 # alt3blink - A Full Stack Web Application with Python, NPM, Webpack and React
 
 ## Current State:
-![](alt3blink/static/images/1.png)
+![](alt3blink/static/images/2.png)
 
 ## Prerequisites
 
