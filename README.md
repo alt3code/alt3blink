@@ -1,5 +1,8 @@
 # alt3blink - A Full Stack Web Application with Python, NPM, Webpack and React
 
+## Current State:
+![](alt3blink/static/images/1.png)
+
 ## Prerequisites
 
 Must have installed; pip, python, flask, npm, blinkstick
