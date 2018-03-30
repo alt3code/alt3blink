@@ -1,24 +1,17 @@
-import React from "react";
-import Hello from "./Hello";
-import { PageHeader } from "react-bootstrap";
+import React, { Component } from "react";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import SwipeTabs from './SwipeTabs';
 
-require('../css/fullstack.css');
-var $ = require('jquery');
-
-// import HeaderBackgroundImage from '../images/header.jpg';
-
-export default class App extends React.Component {
+export default class App extends Component {
     constructor(props) {
         super(props);
-    }
-    addHeaderImg() {
-        let headerBg = new Image();
-        // headerBg.src = HeaderBackgroundImage;
     }
 
     render () {
         return (
-            <Hello />
+            <MuiThemeProvider>
+                <SwipeTabs />
+            </MuiThemeProvider>
         );
     }
 }

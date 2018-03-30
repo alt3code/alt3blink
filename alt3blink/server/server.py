@@ -1,9 +1,10 @@
-import random
 from flask import Flask, render_template, jsonify
-from blinkstick import blinkstick
+from blink import Blink
 
 app = Flask(__name__, static_folder='../static/dist', template_folder='../static')
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
+blink = None
 
 @app.route('/')
 def index():
@@ -11,29 +12,20 @@ def index():
 
 @app.route('/find')
 def find():
-    bstick = blinkstick.find_first()
-    bstick_man = bstick.get_manufacturer()
-    bstick_desc = bstick.get_description()
-    bstick_ser = bstick.get_serial()
-    bstick_col = bstick.get_color(color_format="hex")
-    bstick_info_1 = bstick.get_info_block1()
-    bstick_info_2 = bstick.get_info_block2()
-
+    json_dict = blink.find()
     return jsonify(
-        manufacturer=bstick_man,
-        description=bstick_desc,
-        serialNumber=bstick_ser,
-        color=bstick_col,
-        info1=bstick_info_1,
-        info2=bstick_info_2
+        manufacturer=json_dict['bstick_man'],
+        description=json_dict['bstick_desc'],
+        serialNumber=json_dict['bstick_ser'],
+        color=json_dict['bstick_col'],
+        name=json_dict['bstick_name'],
+        info2=json_dict['bstick_info_2']
     )
 
 @app.route('/blink')
 def blink():
-    bstick = blinkstick.find_first()
-    bstick.set_random_color()
-    print bstick.get_serial() + " " + bstick.get_color(color_format="hex")
-    return 'blink'
+    return blink.blink()
 
 if __name__ == '__main__':
+    blink = Blink()
     app.run()
