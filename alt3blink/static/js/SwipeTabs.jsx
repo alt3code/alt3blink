@@ -13,15 +13,16 @@ var $ = require('jquery');
 
 const styles = {
   slide: {
-    padding: 10,
-    margin: '0 auto'
+    margin: '0 auto',
+    height: 'calc(100% - 75px)',
+    width: '100vw'
   },
   paperStyle: {
-      height: 500,
-      width: 500,
+      height: 750,
+      width: 750,
+      padding: '25',
       textAlign: 'center',
-      display: 'inline-block',
-      margin: '0 auto'
+      margin: '25 auto',
   }
 };
 
@@ -85,10 +86,10 @@ export default class SwipeTabs extends Component {
                       <div className="color-div">
                           <div className="color-circle" style={{backgroundColor: this.state.color}}>
                               <p className="color-text" style={{color: this.state.textColor}}>Current Colour: </p>
-                              </div>
-                              </div>
-                              </Paper>
-                              </div>
+                          </div>
+                      </div>
+                  </Paper>
+              </div>
               <div style={styles.slide}>
                   Alarms
               </div>
