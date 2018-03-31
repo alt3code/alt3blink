@@ -54,16 +54,17 @@ export default class SwipeTabs extends Component {
 
       const cols = color.split(',');
       const textColor = run_color(cols[0], cols[1], cols[2]);
+      const hex = rgbToHex(parseInt(cols[0]), parseInt(cols[1]), parseInt(cols[2]));
+      console.log("Hex = " + hex)
       this.setState({
-          color: cols,
+          color: hex,
           textColor: textColor
       });
-    });    
+    });
   }
 
   render() {
     return (
-
       <div>
           <Tabs
               onChange={this.handleChange}
@@ -82,12 +83,12 @@ export default class SwipeTabs extends Component {
                       <SnackbarNote name="Find BlinkStick" description="Connected to" />
                       <RaisedButton label="Blink" onClick={this.doPythonBlink} secondary={true} />
                       <div className="color-div">
-                          <div className="color-circle" style={{backgroundColor: `rgb(${this.state.color})`}}>
-                              <p className="color-text" style={{color: this.state.textColor}}>Colour</p>
-                          </div>
-                      </div>
-                  </Paper>
-              </div>
+                          <div className="color-circle" style={{backgroundColor: this.state.color}}>
+                              <p className="color-text" style={{color: this.state.textColor}}>Current Colour: </p>
+                              </div>
+                              </div>
+                              </Paper>
+                              </div>
               <div style={styles.slide}>
                   Alarms
               </div>

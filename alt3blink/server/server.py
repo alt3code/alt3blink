@@ -13,14 +13,17 @@ def index():
 @app.route('/find')
 def find():
     json_dict = blink.find()
-    return jsonify(
-        manufacturer=json_dict['bstick_man'],
-        description=json_dict['bstick_desc'],
-        serialNumber=json_dict['bstick_ser'],
-        color=json_dict['bstick_col'],
-        name=json_dict['bstick_name'],
-        info2=json_dict['bstick_info_2']
-    )
+    if json_dict is not None:
+        return jsonify(
+            manufacturer=json_dict['bstick_man'],
+            description=json_dict['bstick_desc'],
+            serialNumber=json_dict['bstick_ser'],
+            color=json_dict['bstick_col'],
+            name=json_dict['bstick_name'],
+            info2=json_dict['bstick_info_2']
+        )
+    else:
+        return '<Not Connected>'
 
 @app.route('/blink')
 def blink():

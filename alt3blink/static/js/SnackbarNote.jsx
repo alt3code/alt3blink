@@ -23,6 +23,7 @@ export default class SnackbarNote extends React.Component {
 
   findBlinkStick() {
       $.get(window.location.href + 'find', (data) => {
+        data.name == undefined ? this.setState({name:'<Nothing>'}) : 
         this.setState({
             manufacturer:data.manufacturer,
             description:data.description,
